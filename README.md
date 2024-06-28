@@ -1,10 +1,6 @@
 # Quasi-one-dimensional hydrogen bonding in nanoconfined ice
 Data and code for "Quasi-one-dimensional hydrogen bonding in nanoconfined ice"
 
-### `'Source Data.xlsx'`
-
-This Excel file provides all of the source data for the figures in the main text.
-
 ### `first_principles`
 
 This directory contains the relaxed structures and input files for the first-principles calculations performed in this work.
@@ -20,3 +16,7 @@ This directory contains the input files for the molecular dynamics simulations, 
 ### `structures`
 
 This directory contains the structures of the four different phases considered. These structures are used as the initial configurations for the molecular dynamics simulations. The relaxed structures used for the first-principles calculations are in the `first_principles` directory.
+
+### `'Source Data.xlsx'`
+
+This Excel file provides all of the source data for the figures in the main text.
