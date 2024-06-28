@@ -1,0 +1,25 @@
+###############################################################################
+# MD simulation for B3LYP H2O with NN potential
+###############################################################################
+
+###############################################################################
+# VARIABLES
+###############################################################################
+clear
+variable runnerCutoff    equal  8.466835984                                                                       # largest symmetry function cutoff (Angstrom)
+variable runnerDir       string "/home/pr489/scratch/confined-water-controlling-width/potentials/gen7/train_001/"           # directory containing RuNNer files
+###############################################################################
+# SETUP
+###############################################################################
+units metal                                                                             # define unit system (metal = Angstrom, eV, ps, g/mol)
+boundary p p p                                                                          # set periodic boundary conditions
+atom_style atomic                                                                       # set atomic style for particles
+box tilt large
+read_data data.lmp                                                                # read start configuration
+pair_style nnp dir ${runnerDir} showew no showewsum 1 resetew yes maxew 200000 cflength 1.889726 cfenergy 0.036749
+pair_coeff * * ${runnerCutoff}
+###############################################################################
+# SIMULATION
+###############################################################################
+fix 1 all ipi r2_2000_20_stat_cl_05.0_1 32347 unix
+run             50000000 

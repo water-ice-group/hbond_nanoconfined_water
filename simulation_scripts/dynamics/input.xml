@@ -1,0 +1,42 @@
+<simulation verbosity='low' threading='True'>
+   <output prefix='simulation'>
+       <properties filename='out' stride='200'>  [ step, time{picosecond}, conserved, temperature{kelvin}, kinetic_md, potential ] </properties>
+       <properties filename='cell' stride='200'>  [ volume{angstrom3}, cell_h{angstrom} ] </properties>
+       <properties filename='stress' stride='200'>  [ ensemble_pressure{bar}, stress_md{bar} ] </properties>
+       <properties filename='pot' stride='200'>  [ pot_component_raw(0), pot_component_raw(1) ] </properties>
+    <trajectory filename='pos' stride='200' format='pdb'> positions </trajectory>
+    <checkpoint stride='200'></checkpoint>
+   </output>
+   <total_steps> 10000000 </total_steps>
+   <total_time> 86000 </total_time>
+   <prng><seed> 2264 </seed></prng>
+   <ffsocket name='cp' mode='unix' pbc='False'>
+     <address> wt_r2_2000_220_stat_cl_05.0_cp </address>
+     <port> 11111 </port>
+   </ffsocket>
+   <ffsocket mode='unix' name='1'>
+     <address> wt_r2_2000_220_stat_cl_05.0_1 </address>
+   </ffsocket>
+   <system>
+      <initialize nbeads='1'>
+	 <file mode='xyz'> init.xyz </file>
+         <velocities mode='thermal' units='kelvin'> 220 </velocities>
+      </initialize>
+      <forces>
+      <force forcefield='1' weight='1.0'> </force>
+      <force forcefield='cp' weight='1.0'> </force>
+      </forces>
+      <motion mode='dynamics'>
+        <dynamics mode='nvt' splitting='baoab'>
+          <timestep units='femtosecond'> 0.5 </timestep>
+          <thermostat mode='svr'>
+            <tau units='femtosecond'> 100 </tau>
+          </thermostat>
+        </dynamics>
+      </motion>
+      <ensemble>
+         <temperature units='kelvin'> 220 </temperature>
+         <pressure units='megapascal'> 2000 </pressure>
+      </ensemble>
+   </system>
+</simulation>

@@ -1,0 +1,5 @@
+3
+Properties=species:S:1:pos:R:3 #=T CELL(GENH):=T 43.00700=T 0.00000=T 28.22900=T 15.00000=T positionsangstrom=T cellangstrom=T pbc="F F F"
+O        6.08800000       2.95900000       2.50200000
+H        6.79300000       2.77500000       1.88000000
+H        5.58000000       2.12800000       2.56600000
