@@ -7,5 +7,4 @@ Here is a list of the analysis scripts provided, along with a description of wha
 - `get_nH.py`: Calculates the statistics for the number of putative/geometric hydrogen bonds in a molecular dynamics trajectory.
 - `ndma.py`: Computes the NDMA hydrogen bonding probability distributions (the NDMA notation is defined in the main text).
 - `lifetime_2D1A.py`: Computes the statistics for the lifetime of the 2D1A state.
-- TODO - 2D1A dynamical lifetimes script
 - `sigma.py`: Calculates the trajectory of $\sigma$ order parameter values as a function of simulation time, as well as the free energy profile along $\sigma$.
